@@ -4,7 +4,11 @@ class Controller_Welcome extends Controller {
 
 	public function action_index()
 	{
-		$this->response->body('hello, world!');
+		$query = DB::select('id', 'firstname')->from('User');
+		$view = View::factory('welcome')
+				->set('nome', $query);
+		$this->response->body($view);
+		
 	}
 
-} // End Welcome
+}
