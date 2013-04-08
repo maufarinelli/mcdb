@@ -20,14 +20,14 @@ return array
 			 */
 			'hostname'   => 'localhost',
 			'database'   => 'mcdb',
-			'username'   => 'root',
+			'username'   => 'mauricio',
 			'password'   => '',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',
 		'charset'      => 'utf8',
 		'caching'      => FALSE,
-	),
+	)/*,
 	'alternate' => array(
 		'type'       => 'PDO',
 		'connection' => array(
@@ -39,7 +39,7 @@ return array
 			 * string   password    database password
 			 * boolean  persistent  use persistent connections?
 			 */
-			'dsn'        => 'mysql:host=localhost;dbname=kohana',
+			/*'dsn'        => 'mysql:host=localhost;dbname=kohana',
 			'username'   => 'root',
 			'password'   => 'r00tdb',
 			'persistent' => FALSE,
@@ -49,8 +49,8 @@ return array
 		 *
 		 * string   identifier  set the escaping identifier
 		 */
-		'table_prefix' => '',
+		/*'table_prefix' => '',
 		'charset'      => 'utf8',
 		'caching'      => FALSE,
-	),
+	),*/
 );
