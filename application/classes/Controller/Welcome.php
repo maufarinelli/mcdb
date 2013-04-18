@@ -8,7 +8,7 @@ class Controller_Welcome extends Controller {
         $user = ORM::factory('User', 1);
 
         $view = View::factory('welcome')
-                        ->set('nome', $user->email);
+                ->set('nome', $user->email);
 
         $this->response->body($view);
     }
