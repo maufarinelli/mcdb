@@ -50,7 +50,7 @@ class Model_User extends ORM{
             ),
             'province' => array(
                 array('not_empty'),
-                array('length', array(':value', 2))
+                array('exact_length', array(':value', 2))
             ),
             'create_date' => array(
                 array('not_empty')
