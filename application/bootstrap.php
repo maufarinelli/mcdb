@@ -63,6 +63,9 @@ ini_set('unserialize_callback_func', 'spl_autoload_call');
  */
 I18n::lang('en-us');
 
+
+Cookie::$salt = 'cbdCookieSalgado';
+
 /**
  * Set Kohana::$environment if a 'KOHANA_ENV' environment variable has been supplied.
  *
@@ -123,8 +126,20 @@ Kohana::modules(array(
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
+Route::set('login', '<controller>(/<action>)')
+	->defaults(array(
+		'controller' => 'login',
+		'action'     => 'index',
+	));
+
+Route::set('createcdb', '<controller>(/<action>)')
+	->defaults(array(
+		'controller' => 'createcdb',
+		'action'     => 'index',
+	));
+
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'welcome',
+		'controller' => 'registration',
 		'action'     => 'index',
 	));

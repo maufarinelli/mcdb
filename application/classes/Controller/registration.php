@@ -1,14 +1,10 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Welcome extends Controller {
+class Controller_Registration extends Controller {
 
     public function action_index()
-    {
-       $user = ORM::factory('User', 1);
-
-        $view = View::factory('welcome')
-                ->set('nome', $user->email);
-
+    {        
+        $view = View::factory('registration');
         $this->response->body($view);
         
         if($_POST && $_POST['user_submit'])
@@ -24,13 +20,17 @@ class Controller_Welcome extends Controller {
             $oUser->address     = isset($_POST['address']) ? $_POST['address'] : '';
             $oUser->city        = $_POST['city'];
             $oUser->province    = $_POST['province'];
-            //$oUser->create_date = $_SERVER['REQUEST_TIME'];
+            $oUser->create_date = $_SERVER['REQUEST_TIME'];
             $oUser->update_date = $_SERVER['REQUEST_TIME'];
             $oUser->browser     = $_SERVER['HTTP_USER_AGENT'];
             
             $oUser->save();
             
+            $request = View::factory('createcdb');
+            $this->response->body($request); 
         }
+        
+        
     }
 
 }
