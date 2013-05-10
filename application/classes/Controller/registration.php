@@ -26,8 +26,9 @@ class Controller_Registration extends Controller {
             
             $oUser->save();
             
-            $request = View::factory('createcdb');
-            $this->response->body($request); 
+            Session::instance()->set('logged', $oUser->user_id);
+            
+            $this->response = Request::factory('home')->execute(); 
         }
         
         

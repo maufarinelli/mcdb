@@ -94,7 +94,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/mcdb/mcdb/',
-	'index_file' => 'index.php'
+	'index_file' => ''
 ));
 
 /**
@@ -132,6 +132,12 @@ Route::set('login', '<controller>(/<action>)')
 		'action'     => 'index',
 	));
 
+Route::set('registration', '<controller>(/<action>)')
+	->defaults(array(
+		'controller' => 'registration',
+		'action'     => 'index',
+	));
+
 Route::set('createcdb', '<controller>(/<action>)')
 	->defaults(array(
 		'controller' => 'createcdb',
@@ -140,6 +146,6 @@ Route::set('createcdb', '<controller>(/<action>)')
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(
-		'controller' => 'registration',
+		'controller' => 'home',
 		'action'     => 'index',
 	));
