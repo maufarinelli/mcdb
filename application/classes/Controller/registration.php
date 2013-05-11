@@ -26,7 +26,8 @@ class Controller_Registration extends Controller {
             
             $oUser->save();
             
-            Session::instance()->set('logged', $oUser->user_id);
+            Session::instance()->set('logged_id', $oUser->user_id);
+            Session::instance()->set('logged', $oUser->firstname);
             
             $this->response = Request::factory('home')->execute(); 
         }

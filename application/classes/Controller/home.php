@@ -3,10 +3,10 @@
 class Controller_Home extends Controller_Tmp { 
     
     public function action_index()
-    {       
-        $oCreateCdb = '';
+    {   
+        //$oCreateCdb = '';
         
-        if(Session::instance()->get('logged'))
+        if($this->template->logged_id !== NULL)
         {
            $oCreateCdb = Request::factory('createcdb')->execute();
         }

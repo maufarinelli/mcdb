@@ -15,8 +15,12 @@ class Controller_Tmp extends Controller_Template {
             $this->template->styles = array();
             $this->template->scripts = array();
             
-            $this->template->loginForm = '';
-            $this->template->header = '';
+            $this->template->loginForm = Request::factory('login')->execute();
+            $this->template->header = View::factory('header')
+                                            ->set('login_form', $this->template->loginForm);
+            
+            $this->template->logged = Session::instance()->get('logged');
+            $this->template->logged_id = Session::instance()->get('logged_id');
 
         }
     }
@@ -38,9 +42,7 @@ class Controller_Tmp extends Controller_Template {
             $this->template->styles = array_merge( $this->template->styles, $styles );
             $this->template->scripts = array_merge( $this->template->scripts, $scripts );
            
-            $this->template->loginForm = Request::factory('login')->execute();
-            $this->template->header = View::factory('header')
-                                        ->set('login_form', $this->template->loginForm);
+            
 	}
         
         parent::after();

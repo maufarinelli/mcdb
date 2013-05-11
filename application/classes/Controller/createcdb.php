@@ -4,11 +4,10 @@ class Controller_Createcdb extends Controller {
 
     public function action_index()
     {
-        $logged = Session::instance()->get('logged');
-        if(isset($logged))
+        if(isset($this->template->logged) && isset($this->template->logged_id))
         {
             $oUser = ORM::factory('User')
-                        ->where('user_id', '=', $logged)
+                        ->where('user_id', '=', $logged_id)
                         ->find();
             
             $sFirstname = $oUser->firstname;

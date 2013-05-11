@@ -4,3 +4,4 @@
 <div>
     <?php echo $create_cdb; ?>
 </div>
+<?php var_dump($_SESSION); ?>
