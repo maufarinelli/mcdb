@@ -4,7 +4,7 @@ class Controller_Home extends Controller_Tmp {
     
     public function action_index()
     {   
-        //$oCreateCdb = '';
+        $oCreateCdb = '';
         
         if($this->template->logged_id !== NULL)
         {
@@ -12,7 +12,7 @@ class Controller_Home extends Controller_Tmp {
         }
             
         $this->template->content = View::factory('home')
-                                    ->bind('create_cdb', $oCreateCdb);
+                                    ->set('create_cdb', $oCreateCdb);
     }
     
 }

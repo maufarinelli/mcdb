@@ -23,10 +23,6 @@ class Controller_Login extends Controller {
                 {
                     Session::instance()->set('logged_id', $oUser->user_id);
                     Session::instance()->set('logged', $oUser->firstname);
-                    
-                    echo 'entrou ';
-                    
-                    $this->response->body(Request::factory('home')->execute());
                 }
                 else
                 {
@@ -50,7 +46,7 @@ class Controller_Login extends Controller {
         Session::instance()->delete('logged_id');
         Session::instance()->delete('logged');
         
-        $this->response->body(Request::factory('home')->execute());
+        HTTP::redirect();
     }
 
 }
