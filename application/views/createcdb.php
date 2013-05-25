@@ -24,9 +24,9 @@
             <label for="template_cdb">Qual template você quer utilizar:</label>
             <select name="template_cdb">
                 <option value="">Escolha um template</option>
-                <option value="1">Template 1</option>
-                <option value="2">Template 1</option>
-                <option value="3">Template 1</option>
+                <option value="01">Template 1</option>
+                <option value="02">Template 1</option>
+                <option value="03">Template 1</option>
             </select>
         </div>
 
@@ -36,5 +36,9 @@
 <?php elseif($cdb): ?>
     
     <p>Parabens, voce criou o seu CDB - <?php echo $cdb; ?></p>
+    
+<?php elseif($errors): ?>
+    
+    <p>Errors: <?php echo $errors; ?></p>
     
 <?php endif; ?>

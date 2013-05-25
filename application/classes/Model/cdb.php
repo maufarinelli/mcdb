@@ -12,7 +12,7 @@ class Model_Cdb extends ORM {
         return array(
             'fk_user_id' => array(
                 array('not_empty'),
-                array('exact_length', array(':value', 7))
+                array('max_length', array(':value', 7))
             ),
             'titulo_cdb' => array(
                 array('not_empty'),
@@ -32,7 +32,7 @@ class Model_Cdb extends ORM {
             ),
             'template_cdb' => array(
                 array('not_empty'),
-                array('exact_length', array(':value', 7))
+                array('max_length', array(':value', 2))
             )
         );        
     }
