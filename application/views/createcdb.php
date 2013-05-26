@@ -32,13 +32,18 @@
 
         <input type="submit" name="cdb_submit" value="Cadastrar" />
     </form>
+    
+    <?php if($errors): ?>
+        <p>Errors: </p>
+        
+        <?php foreach($errors as $errorKey => $errorVal): ?>
+            <p style="color: red"><?php echo Kohana::message('errormessages',$errorKey.'.'.$errorVal[0]); ?></p>
+        <?php endforeach; ?>
+        
+    <?php endif; ?>
 
 <?php elseif($cdb): ?>
     
     <p>Parabens, voce criou o seu CDB - <?php echo $cdb; ?></p>
-    
-<?php elseif($errors): ?>
-    
-    <p>Errors: <?php echo $errors; ?></p>
     
 <?php endif; ?>

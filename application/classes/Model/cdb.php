@@ -20,7 +20,8 @@ class Model_Cdb extends ORM {
                 array('max_length', array(':value', 250))
             ),
             'data_cdb' => array(
-                array('not_empty')
+                array('not_empty'),
+                array('date')
             ),
             'endereco_cdb' => array(
                 array('not_empty'),
@@ -28,7 +29,8 @@ class Model_Cdb extends ORM {
                 array('max_length', array(':value', 250))
             ),
             'hora_cdb' => array(
-                array('not_empty')
+                array('not_empty'),
+                array('regex', array(':value', '/^(\d\d):(\d\d):(\d\d)$/'))
             ),
             'template_cdb' => array(
                 array('not_empty'),

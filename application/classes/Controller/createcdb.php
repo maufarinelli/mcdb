@@ -14,8 +14,8 @@ class Controller_Createcdb extends Controller {
                         ->find();
             
             $sFirstname = $oUser->firstname;
-            $oCdbId = '';
-            $errors = '';
+            $oCdbId = false;
+            $errors = false;
             
             $view = View::factory('createcdb')
                     ->set('username', $sFirstname)
@@ -34,10 +34,11 @@ class Controller_Createcdb extends Controller {
                     $oCdb->endereco_cdb = $_POST['endereco_cdb'];
                     $oCdb->hora_cdb = $_POST['hora_cdb'];
                     $oCdb->template_cdb = $_POST['template_cdb'];
-                    
-                    $oCdbId = $oCdb->titulo_cdb;
 
-                    $oCdb->save();
+                    if($oCdb->save())
+                    {
+                        $oCdbId = $oCdb->titulo_cdb; 
+                    }
                 }
                 catch (ORM_Validation_Exception $e)
                 {
