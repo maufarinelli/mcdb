@@ -30,7 +30,7 @@ class Model_Cdb extends ORM {
             ),
             'hora_cdb' => array(
                 array('not_empty'),
-                array('regex', array(':value', '/^(\d\d):(\d\d):(\d\d)$/'))
+                array('regex', array(':value', '/^([0-2][0-9]):([0-6][0-9]):([0-6][0-9])$/'))
             ),
             'template_cdb' => array(
                 array('not_empty'),

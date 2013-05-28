@@ -6,27 +6,42 @@
     <form action="" method="post" name="cdb_creation">
         <div>
             <label for="titulo_cdb">Nome do CDB:</label>
-            <input type="text" name="titulo_cdb" value="" />
+            <input type="text" name="titulo_cdb" value="<?php if(isset($aPost['titulo_cdb'])) echo $aPost['titulo_cdb']; ?>" />
         </div>
         <div>
-            <label for="data_cdb">A data em que sera realizado:</label>
-            <input type="text" name="data_cdb" value="" />
+            <label for="dia">A data em que sera realizado: (dd/mm/aaaa)</label>
+            <input type="text" name="dia" maxlength="2" value="<?php if(isset($aPost['dia'])) echo $aPost['dia']; ?>" />/
+            <input type="text" name="mes" maxlength="2" value="<?php if(isset($aPost['mes'])) echo $aPost['mes']; ?>" />/
+            <input type="text" name="ano" maxlength="4" value="<?php if(isset($aPost['ano'])) echo $aPost['ano']; ?>" />
         </div>
         <div>
             <label for="endereco_cdb">O endereço:</label>
-            <input type="text" name="endereco_cdb" value="" />
+            <input type="text" name="endereco_cdb" value="<?php if(isset($aPost['endereco_cdb'])) echo $aPost['endereco_cdb']; ?>" />
         </div>
         <div>
-            <label for="hora_cdb">A hora:</label>
-            <input type="text" name="hora_cdb" value="" />
+            <label for="hora">Hora:</label>
+            <select name="hora">
+                <?php for($i=0; $i<24; $i++): ?>
+                    <option value='<?php echo $i < 10 ? '0'.$i : $i; ?>' <?php if(isset($aPost['hora']) && $aPost['hora'] == $i) echo 'selected' ?>><?php echo $i < 10 ? '0'.$i : $i; ?></option>
+                <?php endfor; ?>
+            </select>
+            
+            <label for="minuto">Minuto:</label>
+            <select name="minuto">
+                <?php for($i=0; $i<61; $i++): 
+                        if($i%5 == 0): ?>  
+                            <option value='<?php echo $i < 10 ? '0'.$i : $i; ?>' <?php if(isset($aPost['minuto']) && $aPost['minuto'] == $i) echo 'selected' ?>><?php echo $i < 10 ? '0'.$i : $i; ?></option>
+                        <?php endif; ?>
+                <?php endfor; ?>
+            </select>
         </div>
         <div>
             <label for="template_cdb">Qual template você quer utilizar:</label>
             <select name="template_cdb">
                 <option value="">Escolha um template</option>
-                <option value="01">Template 1</option>
-                <option value="02">Template 1</option>
-                <option value="03">Template 1</option>
+                <option value="01" <?php if(isset($aPost['template_cdb']) && $aPost['template_cdb'] == '01') echo 'selected' ?>>Template 1</option>
+                <option value="02" <?php if(isset($aPost['template_cdb']) && $aPost['template_cdb'] == '02') echo 'selected' ?>>Template 2</option>
+                <option value="03" <?php if(isset($aPost['template_cdb']) && $aPost['template_cdb'] == '03') echo 'selected' ?>>Template 3</option>
             </select>
         </div>
 
