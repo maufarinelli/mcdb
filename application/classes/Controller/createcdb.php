@@ -31,20 +31,19 @@ class Controller_Createcdb extends Controller {
                     $oCdb = ORM::factory('Cdb');
                     
                     $oCdb->fk_user_id = $oUser->user_id;
-                    $oCdb->titulo_cdb = $_POST['titulo_cdb'];
+                    $oCdb->title_cdb = $_POST['title_cdb'];
+                   
+                    $oCdb->year_cdb = $_POST['year'];
+                    $oCdb->month_cdb = $_POST['month'];
+                    $oCdb->day_cdb = $_POST['day'];
                     
-                    $_POST['ano'] >= date('Y') ? $_POST['ano'] : '';
-                    $_POST['mes'] >= 1 || $_POST['mes'] <= 12 ? $_POST['mes'] : '';
-                    $_POST['dia'] >= 1 || $_POST['dia'] <= 31 ? $_POST['dia'] : '';
-                    $oCdb->data_cdb = $_POST['ano'] . '-' . $_POST['mes'] . '-' . $_POST['dia'];
-                    
-                    $oCdb->endereco_cdb = $_POST['endereco_cdb'];
-                    $oCdb->hora_cdb = $_POST['hora'] . ':' . $_POST['minuto'] . ':00';
+                    $oCdb->address_cdb = $_POST['address_cdb'];
+                    $oCdb->hour_cdb = $_POST['hour'] . ':' . $_POST['minute'] . ':00';
                     $oCdb->template_cdb = $_POST['template_cdb'];
 
                     if($oCdb->save())
                     {
-                        $oCdbId = $oCdb->titulo_cdb; 
+                        $oCdbId = $oCdb->title_cdb; 
                     }
                 }
                 catch (ORM_Validation_Exception $e)

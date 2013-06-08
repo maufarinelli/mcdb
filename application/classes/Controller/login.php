@@ -19,7 +19,7 @@ class Controller_Login extends Controller {
             
             else 
             {
-                if($oUser->password == $_POST['password'])
+                if($oUser->password == crypt($_POST['password'], $oUser->password))
                 {
                     Session::instance()->set('logged_id', $oUser->user_id);
                     Session::instance()->set('logged', $oUser->firstname);

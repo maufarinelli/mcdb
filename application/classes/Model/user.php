@@ -19,18 +19,17 @@ class Model_User extends ORM{
         return array(
             'firstname' => array(
                 array('not_empty'),
-                array('min_length', array(':value', 4)),
+                array('min_length', array(':value', 2)),
                 array('max_length', array(':value', 100))
             ),
             'lastname' => array(
                 array('not_empty'),
-                array('min_length', array(':value', 4)),
+                array('min_length', array(':value', 2)),
                 array('max_length', array(':value', 100))
             ), 
             'email' => array(
                 array('not_empty'),
-                array('min_length', array(':value', 4)),
-                array('max_length', array(':value', 50))
+                array('email')
             ),
             'password' => array(
                 array('not_empty'),
@@ -38,7 +37,7 @@ class Model_User extends ORM{
                 array('max_length', array(':value', 50))
             ),
             'phone' => array(
-                array('max_length', array(':value', 15))
+                array('phone')
             ),
             'address' => array(
                 array('max_length', array(':value', 250))

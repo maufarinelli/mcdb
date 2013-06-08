@@ -5,32 +5,32 @@
     <p>Crie agora o seu CDB</p>
     <form action="" method="post" name="cdb_creation">
         <div>
-            <label for="titulo_cdb">Nome do CDB:</label>
-            <input type="text" name="titulo_cdb" value="<?php if(isset($aPost['titulo_cdb'])) echo $aPost['titulo_cdb']; ?>" />
+            <label for="title_cdb">Nome do CDB:</label>
+            <input type="text" name="title_cdb" value="<?php if(isset($aPost['title_cdb'])) echo $aPost['title_cdb']; ?>" />
         </div>
         <div>
-            <label for="dia">A data em que sera realizado: (dd/mm/aaaa)</label>
-            <input type="text" name="dia" maxlength="2" value="<?php if(isset($aPost['dia'])) echo $aPost['dia']; ?>" />/
-            <input type="text" name="mes" maxlength="2" value="<?php if(isset($aPost['mes'])) echo $aPost['mes']; ?>" />/
-            <input type="text" name="ano" maxlength="4" value="<?php if(isset($aPost['ano'])) echo $aPost['ano']; ?>" />
+            <label for="day">A data em que sera realizado: (dd/mm/aaaa)</label>
+            <input type="text" name="day" maxlength="2" value="<?php if(isset($aPost['day'])) echo $aPost['day']; ?>" />/
+            <input type="text" name="month" maxlength="2" value="<?php if(isset($aPost['month'])) echo $aPost['month']; ?>" />/
+            <input type="text" name="year" maxlength="4" value="<?php if(isset($aPost['year'])) echo $aPost['year']; ?>" />
         </div>
         <div>
-            <label for="endereco_cdb">O endereço:</label>
-            <input type="text" name="endereco_cdb" value="<?php if(isset($aPost['endereco_cdb'])) echo $aPost['endereco_cdb']; ?>" />
+            <label for="address_cdb">O endereço:</label>
+            <input type="text" name="address_cdb" value="<?php if(isset($aPost['address_cdb'])) echo $aPost['address_cdb']; ?>" />
         </div>
         <div>
-            <label for="hora">Hora:</label>
-            <select name="hora">
+            <label for="hour">Hora:</label>
+            <select name="hour">
                 <?php for($i=0; $i<24; $i++): ?>
-                    <option value='<?php echo $i < 10 ? '0'.$i : $i; ?>' <?php if(isset($aPost['hora']) && $aPost['hora'] == $i) echo 'selected' ?>><?php echo $i < 10 ? '0'.$i : $i; ?></option>
+                    <option value='<?php echo $i < 10 ? '0'.$i : $i; ?>' <?php if(isset($aPost['hour']) && $aPost['hour'] == $i) echo 'selected' ?>><?php echo $i < 10 ? '0'.$i : $i; ?></option>
                 <?php endfor; ?>
             </select>
             
-            <label for="minuto">Minuto:</label>
-            <select name="minuto">
+            <label for="minute">Minuto:</label>
+            <select name="minute">
                 <?php for($i=0; $i<61; $i++): 
                         if($i%5 == 0): ?>  
-                            <option value='<?php echo $i < 10 ? '0'.$i : $i; ?>' <?php if(isset($aPost['minuto']) && $aPost['minuto'] == $i) echo 'selected' ?>><?php echo $i < 10 ? '0'.$i : $i; ?></option>
+                            <option value='<?php echo $i < 10 ? '0'.$i : $i; ?>' <?php if(isset($aPost['minute']) && $aPost['minute'] == $i) echo 'selected' ?>><?php echo $i < 10 ? '0'.$i : $i; ?></option>
                         <?php endif; ?>
                 <?php endfor; ?>
             </select>

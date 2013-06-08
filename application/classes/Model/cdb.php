@@ -14,21 +14,32 @@ class Model_Cdb extends ORM {
                 array('not_empty'),
                 array('max_length', array(':value', 7))
             ),
-            'titulo_cdb' => array(
+            'title_cdb' => array(
                 array('not_empty'),
                 array('min_length', array(':value', 2)),
                 array('max_length', array(':value', 250))
             ),
-            'data_cdb' => array(
+            'year_cdb' => array(
                 array('not_empty'),
-                array('date')
+                array('max_length', array(':value', 4)),
+                array('range', array(':value', 2012, 2019))
             ),
-            'endereco_cdb' => array(
+            'month_cdb' => array(
+                array('not_empty'),
+                array('max_length', array(':value', 2)),
+                array('range', array(':value', 0, 13))
+            ),
+            'day_cdb' => array(
+                array('not_empty'),
+                array('max_length', array(':value', 2)),
+                array('range', array(':value', 0, 32))
+            ),            
+            'address_cdb' => array(
                 array('not_empty'),
                 array('min_length', array(':value', 2)),
                 array('max_length', array(':value', 250))
             ),
-            'hora_cdb' => array(
+            'hour_cdb' => array(
                 array('not_empty'),
                 array('regex', array(':value', '/^([0-2][0-9]):([0-6][0-9]):([0-6][0-9])$/'))
             ),
