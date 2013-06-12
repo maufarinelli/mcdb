@@ -21,8 +21,9 @@ class Controller_Tmp extends Controller_Template {
             
             $this->template->logged = Session::instance()->get('logged');
             $this->template->logged_id = Session::instance()->get('logged_id');
-
         }
+        
+        
     }
     
     public function after()

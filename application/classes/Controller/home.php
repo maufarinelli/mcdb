@@ -2,9 +2,14 @@
 
 class Controller_Home extends Controller_Tmp { 
     
+    public function before() {
+        parent::before();
+        require_once MODPATH . 'vendor/buscape/apiki_buscape_api.php';
+    }
+    
     public function action_index()
     {   
-        $oCreateCdb = '';
+        /*$oCreateCdb = '';
         
         if($this->template->logged_id !== NULL)
         {
@@ -12,7 +17,18 @@ class Controller_Home extends Controller_Tmp {
         }
             
         $this->template->content = View::factory('home')
-                                    ->set('create_cdb', $oCreateCdb);
+                                    ->set('create_cdb', $oCreateCdb);*/
+        
+        $applicationID = '7838643852314c587376343d';
+        $sourceID = '9262544';
+        
+        // Instancia a classe Apiki_Buscape_API
+        $objApikiBuscapeApi = new Apiki_Buscape_API( $applicationID );
+ 
+        // Obtém o retorno do método
+        $retorno = simplexml_load_string($objApikiBuscapeApi->findCategoryList(array('categoryId' => '5817')));
+        
+        print_r($retorno);
     }
     
 }
