@@ -4,7 +4,6 @@ class Controller_Home extends Controller_Tmp {
     
     public function before() {
         parent::before();
-        require_once MODPATH . 'vendor/buscape/apiki_buscape_api.php';
     }
     
     public function action_index()
