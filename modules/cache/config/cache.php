@@ -1,7 +1,11 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 return array
 (
-/*	'memcache' => array(
+        'apc'      => array(
+		'driver'             => 'apc',
+		'default_expire'     => 3600,
+	),
+	'memcache' => array(
 		'driver'             => 'memcache',
 		'default_expire'     => 3600,
 		'compression'        => FALSE,              // Use Zlib compression (can cause issues with integers)
@@ -17,8 +21,8 @@ return array
 			),
 		),
 		'instant_death'      => TRUE,               // Take server offline immediately on first fail (no retry)
-	),
-	'memcachetag' => array(
+	)
+	/*'memcachetag' => array(
 		'driver'             => 'memcachetag',
 		'default_expire'     => 3600,
 		'compression'        => FALSE,              // Use Zlib compression (can cause issues with integers)

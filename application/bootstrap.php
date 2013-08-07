@@ -112,7 +112,7 @@ Kohana::$config->attach(new Config_File);
  */
 Kohana::modules(array(
 	'auth'       => MODPATH.'auth',       // Basic authentication
-	// 'cache'      => MODPATH.'cache',      // Caching with multiple backends
+	'cache'      => MODPATH.'cache',      // Caching with multiple backends
 	// 'codebench'  => MODPATH.'codebench',  // Benchmarking tool
 	'database'   => MODPATH.'database',   // Database access
 	// 'image'      => MODPATH.'image',      // Image manipulation
@@ -122,6 +122,8 @@ Kohana::modules(array(
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
         'vendors'     => MODPATH.'vendor',  //vendors
 	));
+
+Cache::$default = 'apc';
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
@@ -144,6 +146,11 @@ Route::set('createcdb', '<controller>(/<action>)')
 		'controller' => 'createcdb',
 		'action'     => 'index',
 	));
+/*Route::set('categories', '<controller>(/<action>)')
+	->defaults(array(
+		'controller' => 'categories',
+		'action'     => 'index',
+	));*/
 
 Route::set('default', '(<controller>(/<action>(/<id>)))')
 	->defaults(array(

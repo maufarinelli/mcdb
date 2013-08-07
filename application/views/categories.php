@@ -17,15 +17,14 @@
         <li><a href="">Para a mamae</a></li>
     </ul>
 </nav>
-<div>
-    <?php print_r($aProductsBainToilette); ?>
-    <?php foreach($aProductsBainToilette as $key => $val): ?>
+    <?php /*print_r($aSubCategory);*/  ?>
+    <?php foreach($aSubCategory as $key => $product): ?>
     <div style='width:200px; float:left; margin-right:20px; border: 1px solid #ccc;'>
-        <a href="<?php echo $val->links->link[1]->attributes()->url . "#precos"; ?>"><img src='<?php echo $val->thumbnail->attributes()->url; ?>'
-        <h3><?php echo $val->productName; ?></h3>
-        <p>A partir de <?php echo $val->priceMin; ?></p>
+        <a href="<?php echo $product->links->link[1]->attributes()->url . "#precos"; ?>"><img src='<?php echo $product->thumbnail->attributes()->url; ?>'
+        <h3><?php echo $product->productName; ?></h3>
+        <p>A partir de <?php echo $product->priceMin; ?></p>
         <button>Saiba mais</button></a>
     </div>
-    <?php endforeach; ?>
+    <?php endforeach;?>
         
 </div>
